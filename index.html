@@ -6,12 +6,14 @@
     <title>Allan Medeiros - Senior Software Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
-        /* Mario-like background: blue sky, pixelated clouds */
+        /* Simple Mario-like sky with clouds using CSS */
         body {
             font-family: Arial, sans-serif;
             background-color: #5c94fc; /* Light blue sky */
-            background-image: url('https://i.imgur.com/4Xg7Wbh.png'); /* Pixelated clouds */
-            background-size: cover;
+            background-image: radial-gradient(circle at 30% 30%, white 15%, transparent 20%),
+                              radial-gradient(circle at 70% 30%, white 15%, transparent 20%),
+                              radial-gradient(circle at 50% 80%, white 15%, transparent 20%);
+            background-size: 150px 150px;
             background-repeat: no-repeat;
             display: flex;
             justify-content: center;
