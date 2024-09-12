@@ -6,10 +6,15 @@
     <title>Allan Medeiros - Senior Software Engineer</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <style>
+        @font-face {
+            font-family: 'PressStart2P';
+            src: url('https://fonts.cdnfonts.com/s/47654/PressStart2P-Regular.woff') format('woff');
+        }
         body {
-            font-family: Arial, sans-serif;
-            background-color: #001f3f; /* Navy blue background color */
-            background-size: cover; 
+            font-family: 'PressStart2P', Arial, sans-serif;
+            background-color: #000;
+            background-image: url('https://i.imgur.com/YvfsRIn.png'); /* Pixelated background */
+            background-size: cover;
             background-repeat: no-repeat;
             display: flex;
             justify-content: center;
@@ -18,23 +23,29 @@
             margin: 0;
         }
         .card {
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 60px;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 40px;
+            border: 4px solid #00ff00; /* Bright green outline */
             border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 20px #00ff00;
             text-align: center;
+            width: 350px;
         }
         h1 {
-            color: #333;
-            font-size: 36px;
+            color: #00ff00;
+            font-size: 24px;
+            text-shadow: 2px 2px #000;
+            margin-bottom: 10px;
         }
         p {
-            font-size: 24px;
+            font-size: 14px;
+            color: #fff;
+            margin-bottom: 10px;
         }
         .summary {
-            font-size: 18px;
+            font-size: 12px;
+            color: #ffcc00; /* Retro gold color */
             margin-bottom: 20px;
-            text-align: center; /* Center-align the summary text */
         }
         .contact-info {
             list-style: none;
@@ -45,41 +56,50 @@
         }
         .contact-info a {
             text-decoration: none;
-            color: #333;
-            font-size: 20px;
+            color: #fff;
+            font-size: 14px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .contact-info a:hover {
-            color: #007BFF;
+            color: #ffcc00;
         }
         .contact-info i {
             margin-right: 10px;
-            font-size: 24px;
+            font-size: 18px;
         }
-        /* Styling for the profile image */
         .profile-img {
             width: 150px;
             height: 150px;
+            image-rendering: pixelated; /* Pixelated image for 8-bit effect */
+            border: 4px solid #ffcc00;
             border-radius: 50%;
-            object-fit: cover;
             margin-bottom: 20px;
+        }
+        /* Add blinking animation to the email */
+        .email {
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { color: #ffcc00; }
+            50% { color: #fff; }
+            100% { color: #ffcc00; }
         }
     </style>
 </head>
 <body>
     <div class="card">
-        <!-- GitHub Profile Picture -->
         <img src="https://avatars.githubusercontent.com/u/3705204?v=4" alt="Allan Medeiros" class="profile-img">
-        
         <h1>Allan Medeiros</h1>
         <p>Senior Software Engineer</p>
-        <p class="summary">Specialist in legacy z/OS IBM Architecture to Cloud architecture migration. 
-        Over 17 years I helped multiple IBM customers migrate legacy architectures to cloud services across various 
-        business domains in the Finance and Insurance industries.</p>
+        <p class="summary">Specialist in legacy z/OS IBM to Cloud migration.<br>
+        17+ years experience across Finance & Insurance.</p>
         <ul class="contact-info">
             <li><a href="https://github.com/AllanKM" target="_blank"><i class="fab fa-github"></i>GitHub</a></li>
             <li><a href="https://twitter.com/allank" target="_blank"><i class="fab fa-twitter"></i>Twitter</a></li>
             <li><a href="https://www.linkedin.com/in/allankm/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
-            <li><a href="mailto:allank@sapo.pt"><i class="fas fa-envelope"></i>allankarlus@gmail.com</a></li>
+            <li><a href="mailto:allank@sapo.pt" class="email"><i class="fas fa-envelope"></i>allankarlus@gmail.com</a></li>
         </ul>
     </div>
 </body>
