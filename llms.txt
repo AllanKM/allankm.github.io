@@ -1,27 +1,38 @@
-# Allan Medeiros — Solutions Architect
+# Allan Medeiros — Lead / Chief Architect
 
-I design technical solutions for complex systems: service structure, cloud placement,
-integrations, and delivery. Most of my work is in banking and insurance. Porto, Portugal.
+I connect business outcomes to the enterprise systems that carry them—capability design,
+architecture governance, and transformation the organization can absorb. Banking and insurance.
 
-## Focus
-- Solution design (options, trade-offs, decision records)
-- Cloud platforms: Azure/AKS, GCP, AWS; Java / Spring Boot / Kubernetes
-- System integration (APIs, middleware)
-- Legacy-to-cloud migration
-- Delivery practice: CI/CD, architecture review, specs for LLM-assisted coding in production
+## Practice
+- Business → capability → ownership before solutions
+- Options and trade-offs (rebuild / buy / reuse / migrate) with cost, risk, and readiness
+- Architecture governance across parallel programmes
+- Sequencing change so the business keeps running
+- Aligning executives, product, risk, and delivery on one target-state story
 
-## Selected work (employer names omitted)
-- Insurance platform: Spring Boot / Kubernetes multi-service design
-- Legacy → AWS migration: ~25% lower run cost, ~40% less downtime on migrated paths
-- Enterprise integrations across logistics, support, billing, vendor systems
-- SaaS / product delivery architecture and design-review standards
+## Selected outcomes (organizations omitted)
+- Multi-market insurance product platform (shared capabilities across markets)
+- Estate modernization: ~25% lower operating cost, ~40% less downtime where change landed
+- Cross-domain integration so processes read as one business flow
+- Productized delivery with durable architecture review practice
 
-## Tools
-Java, Spring Boot, Kubernetes, Azure/AKS, GCP, AWS, Jenkins, Docker
+## Credentials
+- TOGAF® Enterprise Architecture
+- ArchiMate®
+- AWS Certified Solutions Architect – Professional
+- Microsoft Certified: Azure Solutions Architect Expert
+- Google Cloud Professional Cloud Architect
+- ITIL® 4
+- SAFe® Architect
+- IBM IT Specialist Profession — Level 1
+- IBM Mentor · Design Thinking Co-Creator
+
+## Education & research
+- MEng, Computer Software Engineering (FEUP); BE, Computer Engineering
+- Google Scholar: https://scholar.google.com/citations?user=E5rZhPcAAAAJ
 
 ## Links
 - https://allankm.github.io/
 - https://www.linkedin.com/in/allankm
 - https://github.com/AllanKM
-- https://scholar.google.com/citations?user=E5rZhPcAAAAJ
 - allank@sapo.pt
