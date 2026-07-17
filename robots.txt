@@ -1,6 +1,8 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://allankm.github.io/sitemap.xml
+
 User-agent: GPTBot
 Allow: /
 
@@ -11,4 +13,10 @@ User-agent: PerplexityBot
 Allow: /
 
 User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
 Allow: /
