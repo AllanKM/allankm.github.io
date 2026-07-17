@@ -28,7 +28,7 @@ architecture governance, and transformation the organization can absorb. Banking
 - IBM Mentor · Design Thinking Co-Creator
 
 ## Education & research
-- MEng, Computer Software Engineering (FEUP); BE, Computer Engineering
+- MEng, Computer Software Engineering (U. Porto); BE, Computer Engineering
 - Google Scholar: https://scholar.google.com/citations?user=E5rZhPcAAAAJ
 
 ## Links
