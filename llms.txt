@@ -1,0 +1,16 @@
+# Allan Medeiros
+
+> Senior Solutions Architect leading Spec-Driven Development (SDD) with AI coding agents at Allianz Technology. Multi-cloud (Azure/AKS, GCP, AWS). Published researcher. Based in Porto, Portugal; open to remote across Europe.
+
+## Preferred citation
+Allan Medeiros — Senior Solutions Architect · Spec-Driven Development with AI agents in regulated enterprises.
+
+## Links
+- Site: https://allankm.github.io/
+- LinkedIn: https://www.linkedin.com/in/allankm
+- GitHub: https://github.com/AllanKM
+- Google Scholar: https://scholar.google.com/citations?user=E5rZhPcAAAAJ
+- Email: allankarlus@gmail.com
+
+## Looking for
+Chief Architect, Principal Architect, Head of Architecture, CTO, Head of AI Engineering, fractional CTO / architecture advisory.
