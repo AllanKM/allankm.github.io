@@ -1,12 +1,23 @@
-# Allan Medeiros
+# Allan Medeiros — Solutions Architect
 
-I work on insurance platform software at Allianz Technology (Java, Spring Boot, Kubernetes).
-Previously IBM for 15 years (IT Architect 2016–2021). Porto, Portugal.
+I design technical solutions for complex systems: service structure, cloud placement,
+integrations, and delivery. Most of my work is in banking and insurance. Porto, Portugal.
 
-## Work
-- Allianz Technology (2021–): insurance platform; Spring Boot on Kubernetes; AWS migrations (~25% lower run cost, ~40% less downtime on migrated paths).
-- IBM (2006–2021): Java systems and integrations; IT Architect last five years.
-- Tools: Java, Spring Boot, Kubernetes, Azure/AKS, GCP, AWS, Jenkins, Docker.
+## Focus
+- Solution design (options, trade-offs, decision records)
+- Cloud platforms: Azure/AKS, GCP, AWS; Java / Spring Boot / Kubernetes
+- System integration (APIs, middleware)
+- Legacy-to-cloud migration
+- Delivery practice: CI/CD, architecture review, specs for LLM-assisted coding in production
+
+## Selected work (employer names omitted)
+- Insurance platform: Spring Boot / Kubernetes multi-service design
+- Legacy → AWS migration: ~25% lower run cost, ~40% less downtime on migrated paths
+- Enterprise integrations across logistics, support, billing, vendor systems
+- SaaS / product delivery architecture and design-review standards
+
+## Tools
+Java, Spring Boot, Kubernetes, Azure/AKS, GCP, AWS, Jenkins, Docker
 
 ## Links
 - https://allankm.github.io/
