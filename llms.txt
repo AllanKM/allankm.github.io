@@ -1,16 +1,14 @@
 # Allan Medeiros
 
-> Senior Solutions Architect and architecture leader. Spec-Driven Development (SDD) with AI coding agents in regulated enterprises. 15 years at IBM (last five as IT Architect). Multi-cloud Azure/AKS, GCP, AWS. Published researcher. Based in Porto, Portugal; Europe / remote.
+> Senior Solutions Architect. Enterprise systems for banking and insurance: microservices on Kubernetes, cloud migration (Azure/AKS, GCP, AWS), integration architecture, and architectural controls for AI-assisted delivery. Fifteen years at IBM (IT Architect for the last five); currently Allianz Technology. Based in Porto, Portugal.
 
-## Preferred citation
-Allan Medeiros — architecture leader · Spec-Driven Development with AI agents in regulated enterprises · Porto / Europe / remote.
-
-## Expertise
-- Spec-Driven Development with AI coding agents / agentic delivery
-- Chief Architect / Head of Architecture / Principal Architect profile
-- Multi-cloud enterprise architecture (Azure, GCP, AWS)
-- Banking and insurance platforms; regulated environments
-- Architecture governance; published research (Google Scholar)
+## Facts
+- Role: Senior Solutions Architect
+- Employers: Allianz Technology (present); IBM (15 years, IT Architect last five)
+- Stack: Java, Spring Boot, Kubernetes, Azure/AKS, GCP, AWS, Jenkins, Docker
+- Domains: insurance, banking, logistics
+- Outcomes (Allianz platform / migration): ~25% lower operating cost; ~40% less downtime on migrated paths
+- Research: Google Scholar (4 papers, ~46 citations); co-author IEEE ISC2 2017; FEUP MEng thesis on generative AI agents for requirements ambiguity
 
 ## Links
 - Site: https://allankm.github.io/
