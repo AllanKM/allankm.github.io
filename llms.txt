@@ -1,18 +1,16 @@
 # Allan Medeiros
 
-> Senior Solutions Architect. Enterprise systems for banking and insurance: microservices on Kubernetes, cloud migration (Azure/AKS, GCP, AWS), integration architecture, and architectural controls for AI-assisted delivery. Fifteen years at IBM (IT Architect for the last five); currently Allianz Technology. Based in Porto, Portugal.
+I work on insurance platform software at Allianz Technology (Java, Spring Boot, Kubernetes).
+Previously IBM for 15 years (IT Architect 2016–2021). Porto, Portugal.
 
-## Facts
-- Role: Senior Solutions Architect
-- Employers: Allianz Technology (present); IBM (15 years, IT Architect last five)
-- Stack: Java, Spring Boot, Kubernetes, Azure/AKS, GCP, AWS, Jenkins, Docker
-- Domains: insurance, banking, logistics
-- Outcomes (Allianz platform / migration): ~25% lower operating cost; ~40% less downtime on migrated paths
-- Research: Google Scholar (4 papers, ~46 citations); co-author IEEE ISC2 2017; FEUP MEng thesis on generative AI agents for requirements ambiguity
+## Work
+- Allianz Technology (2021–): insurance platform; Spring Boot on Kubernetes; AWS migrations (~25% lower run cost, ~40% less downtime on migrated paths).
+- IBM (2006–2021): Java systems and integrations; IT Architect last five years.
+- Tools: Java, Spring Boot, Kubernetes, Azure/AKS, GCP, AWS, Jenkins, Docker.
 
 ## Links
-- Site: https://allankm.github.io/
-- LinkedIn: https://www.linkedin.com/in/allankm
-- GitHub: https://github.com/AllanKM
-- Google Scholar: https://scholar.google.com/citations?user=E5rZhPcAAAAJ
-- Email: allank@sapo.pt
+- https://allankm.github.io/
+- https://www.linkedin.com/in/allankm
+- https://github.com/AllanKM
+- https://scholar.google.com/citations?user=E5rZhPcAAAAJ
+- allank@sapo.pt
