@@ -1,113 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Allan Medeiros - Msc. Software Engineer</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <style>
-        /* Modern and clean design */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f4f9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            padding: 20px;
-        }
-        .card {
-            background-color: #ffffff;
-            padding: 40px;
-            border-radius: 15px; /* Smooth corners */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Subtle shadow for modern look */
-            max-width: 400px;
-            width: 100%;
-            text-align: center;
-        }
-        .card h1 {
-            color: #333;
-            font-size: 28px;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        .card p {
-            font-size: 16px;
-            color: #555;
-            margin-bottom: 20px;
-        }
-        .summary {
-            font-size: 14px;
-            color: #777;
-            background-color: #f9f9fc;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            border-left: 4px solid #007BFF; /* Subtle accent color */
-            line-height: 1.6;
-        }
-        .contact-info {
-            list-style: none;
-            padding: 0;
-        }
-        .contact-info li {
-            margin-bottom: 15px;
-        }
-        .contact-info a {
-            text-decoration: none;
-            color: #007BFF;
-            font-size: 16px;
-            display: inline-flex;
-            align-items: center;
-            transition: color 0.3s ease; /* Smooth transition for hover effect */
-        }
-        .contact-info a:hover {
-            color: #0056b3;
-        }
-        .contact-info i {
-            margin-right: 10px;
-            font-size: 18px;
-        }
-        .profile-img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%; /* Circular image */
-            object-fit: cover;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Slight shadow for depth */
-        }
-        /* Responsive layout for smaller screens */
-        @media (max-width: 500px) {
-            .card {
-                padding: 20px;
-            }
-            .card h1 {
-                font-size: 24px;
-            }
-            .card p, .summary, .contact-info a {
-                font-size: 14px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Allan Medeiros — Senior Solutions Architect</title>
+  <meta name="description" content="Allan Medeiros — Senior Solutions Architect. Spec-Driven Development with AI coding agents at Allianz. Multi-cloud architecture, 20+ years banking and insurance.">
+  <meta name="author" content="Allan Medeiros">
+  <link rel="canonical" href="https://allankm.github.io/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Allan Medeiros",
+    "jobTitle": "Senior Solutions Architect",
+    "description": "Senior Solutions Architect leading Spec-Driven Development with AI coding agents at Allianz Technology. Multi-cloud (Azure/AKS, GCP, AWS). Published researcher.",
+    "url": "https://allankm.github.io/",
+    "email": "allankarlus@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Porto", "addressCountry": "PT" },
+    "worksFor": { "@type": "Organization", "name": "Allianz Technology" },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Universidade do Porto (FEUP)" },
+      { "@type": "Organization", "name": "IBM" }
+    ],
+    "sameAs": [
+      "https://www.linkedin.com/in/allankm",
+      "https://github.com/AllanKM",
+      "https://scholar.google.com/citations?user=E5rZhPcAAAAJ"
+    ],
+    "knowsAbout": [
+      "Enterprise Architecture",
+      "Spec-Driven Development",
+      "AI Agents",
+      "Architecture Governance",
+      "Multi-cloud",
+      "Azure",
+      "Kubernetes",
+      "Legacy Modernization"
+    ]
+  }
+  </script>
+  <style>
+    :root {
+      --bg: #f5f1e8; --card: #fdfcf8; --text: #2b2a24; --muted: #6e6a5c;
+      --accent: #386a58; --border: #e2dbc9;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: linear-gradient(180deg, #f7f3ea 0%, var(--bg) 100%);
+      color: var(--text); min-height: 100vh;
+      display: flex; justify-content: center; align-items: center;
+      padding: 32px 16px;
+    }
+    .card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 18px; max-width: 520px; width: 100%;
+      padding: 40px 36px 32px; box-shadow: 0 8px 32px rgba(50,42,25,.08);
+    }
+    .profile-img {
+      width: 96px; height: 96px; border-radius: 50%; object-fit: cover;
+      display: block; margin: 0 auto 20px; border: 3px solid var(--border);
+    }
+    h1 {
+      font-family: Fraunces, Georgia, serif; font-size: 28px; font-weight: 700;
+      text-align: center; letter-spacing: -.3px;
+    }
+    .title {
+      text-align: center; color: var(--accent); font-weight: 600;
+      font-size: 15px; margin: 6px 0 18px;
+    }
+    .summary {
+      font-size: 14.5px; line-height: 1.65; color: var(--muted);
+      margin-bottom: 22px;
+    }
+    .summary a { color: var(--accent); font-weight: 600; text-decoration: none; }
+    .summary a:hover { text-decoration: underline; }
+    .looking {
+      font-size: 13px; color: var(--muted); background: #f7f3ea;
+      border: 1px solid var(--border); border-radius: 10px;
+      padding: 12px 14px; margin-bottom: 22px; line-height: 1.5;
+    }
+    .looking strong { color: var(--text); }
+    .links { list-style: none; display: grid; gap: 10px; }
+    .links a {
+      display: block; text-decoration: none; color: var(--accent);
+      font-weight: 600; font-size: 14px; padding: 10px 14px;
+      border: 1px solid var(--border); border-radius: 10px;
+      transition: background .15s, border-color .15s;
+    }
+    .links a:hover { background: #f7f3ea; border-color: #c9bfa5; }
+    .links span { color: var(--muted); font-weight: 500; font-size: 12.5px; }
+  </style>
 </head>
 <body>
-    <div class="card">
-        <!-- Profile Image -->
-        <img src="https://avatars.githubusercontent.com/u/3705204?v=4" alt="Allan Medeiros" class="profile-img">
-        
-        <h1>Allan Medeiros</h1>
-        <p>Msc. Software Engineer</p>
-        <p class="summary">
-            Specialist Enterprise Software engineering with long experience with Banking, finance and insurance industries. Have been working with multiple top noch tech companies globably delivering software solutions.
-Strong backgroung in Backend development and large data processing systems, Lift and shift migrations to modern and latest Cloud and on-premisse solutions You can also read my Master thesis in Generative AI Agents for Ambiguity detection in Software Engineering requirements.
-        </p>
-        <ul class="contact-info">
-            <li><a href="https://github.com/AllanKM" target="_blank"><i class="fab fa-github"></i>GitHub</a></li>
-            <li><a href="https://twitter.com/allank" target="_blank"><i class="fab fa-twitter"></i>Twitter</a></li>
-            <li><a href="https://www.linkedin.com/in/allankm/" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a></li>
-            <li><a href="mailto:allank@sapo.pt"><i class="fas fa-envelope"></i>allankarlus@gmail.com</a></li>
-        </ul>
-    </div>
+  <main class="card">
+    <img class="profile-img" src="https://avatars.githubusercontent.com/u/3705204?v=4" alt="Allan Medeiros">
+    <h1>Allan Medeiros</h1>
+    <p class="title">Senior Solutions Architect · Spec-Driven Development with AI agents</p>
+    <p class="summary">
+      20+ years designing enterprise systems for banking, insurance, and logistics —
+      Allianz Technology and IBM (IT Architect). I lead Spec-Driven Development (SDD)
+      with AI coding agents: the specs, guardrails, and governance for shipping
+      production software safely in a regulated enterprise. Multi-cloud practitioner
+      (Azure/AKS, GCP, AWS). Published researcher on
+      <a href="https://scholar.google.com/citations?user=E5rZhPcAAAAJ">Google Scholar</a>;
+      FEUP master's thesis on generative AI agents for ambiguity detection in software
+      requirements.
+    </p>
+    <p class="looking">
+      <strong>Open to:</strong> Chief Architect, Principal Architect, Head of Architecture,
+      CTO, Head of AI Engineering, and select fractional / advisory work —
+      Porto · remote across Europe.
+    </p>
+    <ul class="links">
+      <li><a href="https://www.linkedin.com/in/allankm/" target="_blank" rel="noopener">LinkedIn <span>— professional profile</span></a></li>
+      <li><a href="https://github.com/AllanKM" target="_blank" rel="noopener">GitHub <span>— code &amp; architecture</span></a></li>
+      <li><a href="https://scholar.google.com/citations?user=E5rZhPcAAAAJ" target="_blank" rel="noopener">Google Scholar <span>— publications</span></a></li>
+      <li><a href="mailto:allankarlus@gmail.com">Email <span>— allankarlus@gmail.com</span></a></li>
+    </ul>
+  </main>
 </body>
 </html>
