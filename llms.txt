@@ -31,6 +31,10 @@ architecture governance, and transformation the organization can absorb. Banking
 - MEng, Computer Software Engineering (U. Porto); BE, Computer Engineering
 - Google Scholar: https://scholar.google.com/citations?user=E5rZhPcAAAAJ
 
+## Blog
+- https://allanramos.com/blog/
+- From strategy to systems (2026-07-18): https://allanramos.com/blog/from-strategy-to-systems/
+
 ## Links
 - https://allanramos.com/
 - https://www.linkedin.com/in/allankm
