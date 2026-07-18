@@ -19,20 +19,20 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "The technical debt shape of AI-assisted sprints",
-    "datePublished": "2026-07-13",
-    "dateModified": "2026-07-13",
-    "author": {
-      "@type": "Person",
-      "name": "Allan Ramos",
-      "url": "https://allanramos.com/"
-    },
-    "url": "https://allanramos.com/blog/technical-debt-ai-assisted-sprints/",
-    "description": "Velocity charts look healthy while the estate accumulates near-duplicate modules, shallow tests, and undocumented decisions.",
-    "mainEntityOfPage": "https://allanramos.com/blog/technical-debt-ai-assisted-sprints/"
-  }
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The technical debt shape of AI-assisted sprints",
+  "datePublished": "2026-07-13",
+  "dateModified": "2026-07-13",
+  "author": {
+    "@type": "Person",
+    "name": "Allan Ramos",
+    "url": "https://allanramos.com/"
+  },
+  "url": "https://allanramos.com/blog/technical-debt-ai-assisted-sprints/",
+  "description": "Velocity charts look healthy while the estate accumulates near-duplicate modules, shallow tests, and undocumented decisions.",
+  "mainEntityOfPage": "https://allanramos.com/blog/technical-debt-ai-assisted-sprints/"
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,19 +63,180 @@
         <h1>The technical debt shape of AI-assisted sprints</h1>
         <div class="body">
           <p>
-            AI-assisted sprints often finish more tickets. They also finish more almost-solutions: three ways to call the same service, tests that assert mocks, and READMEs that describe intent the code no longer has.
+            AI-assisted sprints often finish more tickets. They also finish more almost-solutions: three ways to call the same service, tests that assert mocks, and READMEs that describe intent the code no longer has. The burndown looks healthy. The estate quietly becomes harder to change.
+          </p>
+          <p>
+            This is not an argument to ban assistants. It is an argument to recognize a debt shape that traditional velocity metrics do not show.
           </p>
           <h2>Debt you will feel later</h2>
           <p>
-            Conceptual debt—unclear domain language—hurts more than messy formatting. Generated names that almost match the ubiquitous language fracture the model. Fix language early; formatting is cheap.
+            Conceptual debt—unclear domain language—hurts more than messy formatting. Generated names that almost match the ubiquitous language fracture the model. customerProfile, ClientInfo, and PartyDTO may all be “fine” until reporting, risk, and product disagree about which one is authoritative.
           </p>
           <p>
-            Another pattern: skipping the hard integration and shipping a happy path the model invented. The debt shows up in incident channels, not in the sprint review.
+            Another pattern: skipping the hard integration and shipping a happy path the model invented. The debt shows up in incident channels, not in the sprint review. Shallow tests give false confidence: green pipelines that never exercised the partner’s real error codes or the batch job that runs only on month-end.
+          </p>
+          <p>
+            Duplication is especially seductive. The assistant can recreate a similar helper in every repository faster than a human would. Each copy drifts. Cross-cutting fixes become archaeology.
+          </p>
+          <h2>How the incentives go wrong</h2>
+          <p>
+            If leaders reward ticket count and story points without inspecting consolidation work, teams rationally optimize for visible output. AI makes that optimization cheaper. The organization then concludes “AI made us faster” while cost of change rises.
+          </p>
+          <p>
+            Review culture can amplify the problem. Rubber-stamping large generated diffs because “it looks consistent” misses structural duplication. Consistency of style is not consistency of design.
           </p>
           <h2>Budget cleanup as delivery</h2>
           <p>
-            Treat consolidation of AI-shaped duplication as a first-class backlog item. If every sprint only adds, the multiplier eventually multiplies cost of change.
+            Treat consolidation of AI-shaped duplication as a first-class backlog item. Reserve capacity every sprint or every release train for deletion, merging modules, and strengthening characterization tests around risky areas.
           </p>
+          <p>
+            Make “reduce parallel implementations of X” a measurable outcome, not a rainy-day wish. If every sprint only adds, the multiplier eventually multiplies cost of change.
+          </p>
+          <h2>Practices that keep debt visible</h2>
+          <p>
+            Maintain a living map of capabilities and their systems. When a new module appears that overlaps an existing capability, that is a review fail—not a clever reuse of a prompt.
+          </p>
+          <p>
+            Track hotspots: files touched often, services with rising defect density, domains with many near-synonyms. Use that signal to aim cleanup. AI can help with the mechanical merge once humans decide which implementation is canonical.
+          </p>
+          <p>
+            Prefer shared libraries and paved-road templates over copy-paste generation. The assistant should instantiate the house pattern, not invent a new dialect each time.
+          </p>
+          <h2>A healthier definition of speed</h2>
+          <p>
+            Speed worth celebrating is shorter time from intent to safe, operable change—not more commits per day. AI can support that definition when design ownership and cleanup capacity travel with it. Without those, you are financing tomorrow’s rewrite with today’s demo metrics.
+          </p>
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+          <!--lengthened-->
         </div>
       </article>
     </main>

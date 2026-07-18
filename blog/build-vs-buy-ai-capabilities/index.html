@@ -19,20 +19,20 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Build vs buy for AI capabilities",
-    "datePublished": "2026-07-07",
-    "dateModified": "2026-07-07",
-    "author": {
-      "@type": "Person",
-      "name": "Allan Ramos",
-      "url": "https://allanramos.com/"
-    },
-    "url": "https://allanramos.com/blog/build-vs-buy-ai-capabilities/",
-    "description": "The question is not “which model.” It is which capabilities are differentiating, which are commodity, and what lock-in you can reverse.",
-    "mainEntityOfPage": "https://allanramos.com/blog/build-vs-buy-ai-capabilities/"
-  }
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Build vs buy for AI capabilities",
+  "datePublished": "2026-07-07",
+  "dateModified": "2026-07-07",
+  "author": {
+    "@type": "Person",
+    "name": "Allan Ramos",
+    "url": "https://allanramos.com/"
+  },
+  "url": "https://allanramos.com/blog/build-vs-buy-ai-capabilities/",
+  "description": "The question is not \u201cwhich model.\u201d It is which capabilities are differentiating, which are commodity, and what lock-in you can reverse.",
+  "mainEntityOfPage": "https://allanramos.com/blog/build-vs-buy-ai-capabilities/"
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,19 +63,178 @@
         <h1>Build vs buy for AI capabilities</h1>
         <div class="body">
           <p>
-            Vendors ship impressive assistants. Building in-house feels like control. Both fail when nobody maps the capability to competitive advantage and exit options.
+            Vendors ship impressive assistants. Building in-house feels like control. Both fail when nobody maps the capability to competitive advantage and exit options. The loud argument about model brands is usually the least important decision on the table.
+          </p>
+          <p>
+            Architecture leadership should reframe the conversation around capabilities, contracts, and absorbable change—the same way we should for any major package or platform choice.
           </p>
           <h2>Decide on capability, not logo</h2>
           <p>
-            Buy commodity: generic summarization, coding assist, standard OCR. Build or deeply configure where underwriting logic, claims nuance, or customer data advantage lives.
+            Buy commodity: generic summarization, coding assist, standard OCR, common speech-to-text. Build or deeply configure where underwriting logic, claims nuance, pricing edge, or customer data advantage lives.
           </p>
           <p>
-            Insist on exportable evaluation data, portable prompts or graphs where possible, and clear data-use terms. Soft lock-in starts as convenience.
+            Insist on exportable evaluation data, portable orchestration where possible, and clear data-use terms. Soft lock-in starts as convenience: prompts trapped in a vendor UI, fine-tunes you cannot leave, retrieval corpora you cannot re-index elsewhere without a project.
           </p>
           <h2>Price the whole system</h2>
           <p>
-            Include integration, monitoring, change management, and model churn. A cheap API with expensive human cleanup is not cheap.
+            Include integration, monitoring, change management, evaluation operations, and model churn. A cheap API with expensive human cleanup is not cheap. A packaged copilot that cannot meet residency or audit needs is not “faster”—it is a dead end after legal review.
           </p>
+          <p>
+            Also price organizational fit. A brilliant platform that your operating model cannot staff will rot. Buy decisions are change decisions.
+          </p>
+          <h2>Hybrid is normal</h2>
+          <p>
+            Many estates land on a hybrid: commodity models via a controlled gateway, proprietary workflows and rules in-house, vendor vertical solutions for bounded domains with strong exit clauses. That is fine if the seams are designed.
+          </p>
+          <p>
+            Design the seams explicitly: where identity lives, where prompts are stored, how evaluation runs, how PII is handled, how a capability can move later with bounded cost.
+          </p>
+          <h2>Questions that cut through hype</h2>
+          <ul>
+            <li>What business capability does this serve, and who owns it?</li>
+            <li>What evidence will we accept that it works in our cases?</li>
+            <li>What happens on vendor failure or price shock?</li>
+            <li>What data leaves, and under what terms?</li>
+            <li>What must our people still do on day two of production?</li>
+          </ul>
+          <p>
+            If a proposal cannot answer those questions, it is not ready for architecture approval—regardless of how good the keynote looked.
+          </p>
+          <h2>Recommendation posture</h2>
+          <p>
+            Default to buy for undifferentiated assistance, default to control for decisioning near money and risk, and always keep an exit narrative. That posture is boring on purpose. Boring is how you still have options when the market’s favourite model changes names again next year.
+          </p>
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+          <!--lengthened-->
         </div>
       </article>
     </main>

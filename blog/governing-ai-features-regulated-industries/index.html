@@ -19,20 +19,20 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Governing AI features in banking and insurance",
-    "datePublished": "2026-07-15",
-    "dateModified": "2026-07-15",
-    "author": {
-      "@type": "Person",
-      "name": "Allan Ramos",
-      "url": "https://allanramos.com/"
-    },
-    "url": "https://allanramos.com/blog/governing-ai-features-regulated-industries/",
-    "description": "Regulated estates need AI treated as a capability with owners, controls, and evidence—not as a demo that escaped into production.",
-    "mainEntityOfPage": "https://allanramos.com/blog/governing-ai-features-regulated-industries/"
-  }
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Governing AI features in banking and insurance",
+  "datePublished": "2026-07-15",
+  "dateModified": "2026-07-15",
+  "author": {
+    "@type": "Person",
+    "name": "Allan Ramos",
+    "url": "https://allanramos.com/"
+  },
+  "url": "https://allanramos.com/blog/governing-ai-features-regulated-industries/",
+  "description": "Regulated estates need AI treated as a capability with owners, controls, and evidence\u2014not as a demo that escaped into production.",
+  "mainEntityOfPage": "https://allanramos.com/blog/governing-ai-features-regulated-industries/"
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,19 +63,115 @@
         <h1>Governing AI features in banking and insurance</h1>
         <div class="body">
           <p>
-            In banking and insurance, “we shipped a chatbot” is not a success metric. Outcomes are explainability to risk, auditability to compliance, and stability under peak load and vendor change.
+            In banking and insurance, “we shipped a chatbot” is not a success metric. Outcomes are explainability to risk, auditability to compliance, stability under peak load and vendor change, and fair treatment of customers when the model is wrong. A demo that impresses a digital committee can still fail a supervisory conversation.
+          </p>
+          <p>
+            Governing AI features means treating them as capabilities in the enterprise architecture—not as experiments permanently parked beside the real estate.
           </p>
           <h2>Capability first</h2>
           <p>
-            Name the business capability: assisted underwriting, claims triage, customer service deflection, fraud scoring. Assign an owner. Define what “good” means in business terms before choosing a model or vendor.
+            Name the business capability: assisted underwriting, claims triage, customer service deflection, fraud scoring, document intake. Assign an owner who can stop the feature as well as promote it. Define what “good” means in business terms before choosing a model or vendor.
           </p>
           <p>
-            Map data classes, retention, cross-border movement, and human override. Those constraints are architecture, not paperwork after go-live.
+            Map data classes, retention, cross-border movement, and human override. Those constraints are architecture, not paperwork after go-live. If customer data will leave your region, or training use is unclear in the contract, you do not have a feature proposal—you have an open risk item.
+          </p>
+          <p>
+            Link the capability to the target operating model. Who handles exceptions? Which existing system of record remains authoritative? What happens to journey SLAs when the model degrades? AI that floats outside operating model design becomes a parallel bank inside the bank.
           </p>
           <h2>Controls that survive scrutiny</h2>
           <p>
-            Decision logs, prompt and model versioning, evaluation sets tied to real cases, and clear escalation to a human. If you cannot reconstruct why a customer saw an outcome, you do not have a production feature—you have a liability.
+            Decision logs, prompt and model versioning, evaluation sets tied to real cases, and clear escalation to a human are table stakes. If you cannot reconstruct why a customer saw an outcome, you do not have a production feature—you have a liability.
           </p>
+          <p>
+            Separate control design from model quality. A strong model with no audit trail still fails governance. A mediocre model with tight scope, strong overrides, and clear evidence may be acceptable for a narrow assistive use case. Risk committees care about controllable outcomes more than benchmark leaderboards.
+          </p>
+          <h2>Evaluation as a release gate</h2>
+          <p>
+            Offline scores on marketing datasets are not enough. Build evaluation sets from production-like cases, including hostile and edge scenarios. Track disagreement with expert reviewers. Set thresholds that block release when quality drifts after a model upgrade.
+          </p>
+          <p>
+            For generative customer channels, add safety and hallucination checks that match your conduct rules—not generic toxicity filters alone. “Helpful” is not the same as “accurate about policy coverage.”
+          </p>
+          <h2>Vendor and model change management</h2>
+          <p>
+            Models change under you. Vendors deprecate endpoints. Prompt behaviour shifts. Treat model and prompt versions like any other critical dependency: change windows, regression packs, rollback, and communication to operations.
+          </p>
+          <p>
+            Contract for data use, subprocessors, residency, and exit. Soft lock-in often starts as “we will fine-tune later.” Architecture should keep an exit narrative even when you have no intention of leaving next quarter.
+          </p>
+          <h2>A governance rhythm that works</h2>
+          <p>
+            Lightweight design authority for AI use cases beats a yearly policy PDF. Bring risk, security, architecture, and the product owner into the same short review when a use case moves from lab to customers. Record the decision. Revisit when scope expands from assist to decide.
+          </p>
+          <p>
+            That rhythm is how regulated organizations adopt AI without pretending that innovation and control are enemies. They are the same design problem viewed from two chairs.
+          </p>
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+          <!--lengthened-->
         </div>
       </article>
     </main>

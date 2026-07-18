@@ -19,20 +19,20 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Architecture review when half the code was generated",
-    "datePublished": "2026-07-16",
-    "dateModified": "2026-07-16",
-    "author": {
-      "@type": "Person",
-      "name": "Allan Ramos",
-      "url": "https://allanramos.com/"
-    },
-    "url": "https://allanramos.com/blog/architecture-review-generated-code/",
-    "description": "Review must shift from line taste to boundaries, invariants, and evidence that the system still matches the agreed target shape.",
-    "mainEntityOfPage": "https://allanramos.com/blog/architecture-review-generated-code/"
-  }
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Architecture review when half the code was generated",
+  "datePublished": "2026-07-16",
+  "dateModified": "2026-07-16",
+  "author": {
+    "@type": "Person",
+    "name": "Allan Ramos",
+    "url": "https://allanramos.com/"
+  },
+  "url": "https://allanramos.com/blog/architecture-review-generated-code/",
+  "description": "Review must shift from line taste to boundaries, invariants, and evidence that the system still matches the agreed target shape.",
+  "mainEntityOfPage": "https://allanramos.com/blog/architecture-review-generated-code/"
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,19 +63,118 @@
         <h1>Architecture review when half the code was generated</h1>
         <div class="body">
           <p>
-            Classic review hunted style and cleverness. With AI in the loop, volume rises and local quality looks fine while structural mistakes hide in plain sight: new coupling, silent schema drift, duplicated domain logic under new names.
+            Classic review hunted style and cleverness. With AI in the loop, volume rises and local quality often looks fine while structural mistakes hide in plain sight: new coupling, silent schema drift, duplicated domain logic under new names. A pull request can be well-formatted, well-commented, and still wrong for the enterprise.
+          </p>
+          <p>
+            Architecture review has to evolve from reading every line to interrogating fit. That is not lowering the bar. It is aiming the scarce human attention where failure is expensive.
           </p>
           <h2>Ask different questions</h2>
           <p>
-            Does this change respect the capability boundary? Which invariants still hold? What happens when the model or library version moves? Is there an exit path if the AI-assisted path stalls?
+            Does this change respect the capability boundary? Which invariants still hold? What happens when the model or library version moves? Is there an exit path if the AI-assisted path stalls? Who owns the new concept introduced in this diff?
           </p>
           <p>
-            Demand diagrams or decision notes for anything that crosses trust zones, persists new entities, or alters customer-facing behaviour. Diff size is not a severity score.
+            Demand diagrams or decision notes for anything that crosses trust zones, persists new entities, or alters customer-facing behaviour. Diff size is not a severity score. A twenty-line change to authorization can matter more than a thousand-line generated DTO layer.
+          </p>
+          <p>
+            Also ask what was deleted or simplified away. Assistants are eager to “clean up” quirks. Some quirks are load-bearing: a strange validation that encodes a regulatory edge case, or an odd retry that survived a partner’s broken API. Reviewers should treat unexplained deletions as suspicious.
           </p>
           <h2>Make review scalable</h2>
           <p>
-            Automate the boring checks. Reserve human review for ownership, risk, and fit to the target operating model. Architecture review is still the agreement between business and IT—generation does not waive it.
+            Automate the boring checks: formatting, dependency licenses, secret scanning, contract tests, static rules for banned packages and disallowed regions. Reserve human review for ownership, risk, and fit to the target operating model.
           </p>
+          <p>
+            Establish review lanes. Routine changes inside a bounded context with green contracts can use a lighter path. Changes that create a system of record, expose a new external interface, or touch payment and identity need architecture eyes even if the code “looks fine.”
+          </p>
+          <p>
+            Publish a short checklist that reviewers actually use. Long quality manuals get ignored. Five questions that map to your principles beat fifty that do not.
+          </p>
+          <h2>Evidence over vibes</h2>
+          <p>
+            Generated code often arrives with confident comments. Confidence is not evidence. Prefer executable proof: contract tests against the real interface, property tests for invariants, migration dry-runs, and evaluation cases for any probabilistic component.
+          </p>
+          <p>
+            When a change claims to preserve behaviour, require a characterization suite before the refactor lands. When it claims to improve latency or cost, require a measurement plan. Architecture review should be allergic to unmeasured claims dressed as engineering judgment.
+          </p>
+          <h2>Social dynamics</h2>
+          <p>
+            AI-assisted authors may not fully understand the code they submit. That is a process smell, not a personal failing. The review culture must make it acceptable to say “I generated this; here is what I verified.” Hiding the tool creates cargo-cult ownership.
+          </p>
+          <p>
+            Conversely, reviewers should not reject work merely because AI was used. Reject work that lacks verification, violates boundaries, or invents parallel architectures. The standard is fitness for the estate, not purity of authorship.
+          </p>
+          <h2>Keep the enterprise story intact</h2>
+          <p>
+            Architecture review is still the agreement between business and IT. Generation does not waive it. If reviews only optimize for merge speed, you will ship a coherent-looking codebase that cannot answer who owns the customer journey or why three services compute the same premium differently.
+          </p>
+          <p>
+            Hold the line on the target shape. Local elegance that fractures the enterprise story is not a successful review—it is a missed one.
+          </p>
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+          <!--lengthened-->
         </div>
       </article>
     </main>

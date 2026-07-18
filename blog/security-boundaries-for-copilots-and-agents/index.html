@@ -19,20 +19,20 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Security boundaries for copilots and agents",
-    "datePublished": "2026-07-08",
-    "dateModified": "2026-07-08",
-    "author": {
-      "@type": "Person",
-      "name": "Allan Ramos",
-      "url": "https://allanramos.com/"
-    },
-    "url": "https://allanramos.com/blog/security-boundaries-for-copilots-and-agents/",
-    "description": "Agents that can call tools are new attack surface: prompt injection, data exfiltration, and over-privileged actions dressed as helpfulness.",
-    "mainEntityOfPage": "https://allanramos.com/blog/security-boundaries-for-copilots-and-agents/"
-  }
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Security boundaries for copilots and agents",
+  "datePublished": "2026-07-08",
+  "dateModified": "2026-07-08",
+  "author": {
+    "@type": "Person",
+    "name": "Allan Ramos",
+    "url": "https://allanramos.com/"
+  },
+  "url": "https://allanramos.com/blog/security-boundaries-for-copilots-and-agents/",
+  "description": "Agents that can call tools are new attack surface: prompt injection, data exfiltration, and over-privileged actions dressed as helpfulness.",
+  "mainEntityOfPage": "https://allanramos.com/blog/security-boundaries-for-copilots-and-agents/"
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,19 +63,180 @@
         <h1>Security boundaries for copilots and agents</h1>
         <div class="body">
           <p>
-            A chat box with read-only docs is one risk class. An agent with tickets, email, and production APIs is another. Architecture must assume hostile content in the context window—including your own documents.
+            A chat box with read-only docs is one risk class. An agent with tickets, email, and production APIs is another. Architecture must assume hostile content in the context window—including your own documents. Helpfulness is not a security control.
+          </p>
+          <p>
+            The industry is learning, quickly, that classical appsec still applies and that new failure modes sit on top of it.
           </p>
           <h2>Least privilege by default</h2>
           <p>
             Scope tools narrowly. Prefer propose-then-confirm for side effects. Isolate tenants and secrets from model context. Log every tool invocation with actor and reason.
           </p>
           <p>
-            Do not paste production credentials into prompts to “make the demo work.” That demo becomes the permanent pattern.
+            Do not paste production credentials into prompts to “make the demo work.” That demo becomes the permanent pattern. Use brokered access with short-lived tokens and clear audience restrictions.
+          </p>
+          <p>
+            Separate identities for user-initiated agent actions versus batch automation. Attribution matters for audit and for incident response.
           </p>
           <h2>Treat untrusted text as untrusted</h2>
           <p>
-            Retrieved documents and user paste can instruct the model to ignore policy. Build allow-lists and output filters for actions, not only for language tone.
+            Retrieved documents and user paste can instruct the model to ignore policy. Build allow-lists and output filters for actions, not only for language tone. A polite exfiltration is still an exfiltration.
           </p>
+          <p>
+            Be careful with “browse and act” patterns. Content from the open web is an instruction channel. If an agent can fetch a page and then call internal tools, you have created a confused deputy unless you constrain both sides hard.
+          </p>
+          <h2>Data boundaries</h2>
+          <p>
+            Define which corpora an assistant may see. Segment by role, region, and product. A support agent for retail customers should not retrieve wholesale credit files because the vector index happened to be global.
+          </p>
+          <p>
+            Watch for indirect exposure: summaries that include secrets, tool responses echoed back to a channel with different clearance, or logs that persist prompts forever. DLP and redaction belong in the path, not only in policy PDFs.
+          </p>
+          <h2>Agent loop hazards</h2>
+          <p>
+            Unbounded tool loops burn money and can amplify a single injected instruction into many privileged calls. Hard caps, human approval thresholds, and circuit breakers are part of secure design.
+          </p>
+          <p>
+            Evaluate adversarial prompts as part of release gates—especially for agents that can change state. Red team the workflow, not only the base model’s chat manners.
+          </p>
+          <h2>Secure paved roads</h2>
+          <p>
+            Platform security and architecture should offer a default agent stack that is safer than shadow DIY: approved tools, centralized authz, logging, and patterns for confirmation. If the secure path is slower than the dangerous path by weeks, people will choose danger.
+          </p>
+          <p>
+            Ship the guardrails as product features for developers. Security that only says no will lose to an IDE plugin that says yes.
+          </p>
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+          <!--lengthened-->
         </div>
       </article>
     </main>

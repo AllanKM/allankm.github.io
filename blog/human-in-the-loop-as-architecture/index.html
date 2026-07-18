@@ -19,20 +19,20 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Human-in-the-loop is an architecture decision",
-    "datePublished": "2026-07-10",
-    "dateModified": "2026-07-10",
-    "author": {
-      "@type": "Person",
-      "name": "Allan Ramos",
-      "url": "https://allanramos.com/"
-    },
-    "url": "https://allanramos.com/blog/human-in-the-loop-as-architecture/",
-    "description": "“Someone will check” is not a control unless you design roles, queues, SLAs, and what the system does while waiting.",
-    "mainEntityOfPage": "https://allanramos.com/blog/human-in-the-loop-as-architecture/"
-  }
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Human-in-the-loop is an architecture decision",
+  "datePublished": "2026-07-10",
+  "dateModified": "2026-07-10",
+  "author": {
+    "@type": "Person",
+    "name": "Allan Ramos",
+    "url": "https://allanramos.com/"
+  },
+  "url": "https://allanramos.com/blog/human-in-the-loop-as-architecture/",
+  "description": "\u201cSomeone will check\u201d is not a control unless you design roles, queues, SLAs, and what the system does while waiting.",
+  "mainEntityOfPage": "https://allanramos.com/blog/human-in-the-loop-as-architecture/"
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,19 +63,177 @@
         <h1>Human-in-the-loop is an architecture decision</h1>
         <div class="body">
           <p>
-            Human-in-the-loop sounds safe until the queue is endless, the UI hides context, or overnight batches auto-approve because nobody staffed the rota. The loop is a system component with capacity and failure modes.
+            Human-in-the-loop sounds safe until the queue is endless, the UI hides context, or overnight batches auto-approve because nobody staffed the rota. The loop is a system component with capacity and failure modes. If you do not design it, production will design it for you—badly.
+          </p>
+          <p>
+            In architecture terms, the human is not a magical compliance dusting. The human is a worker in a workflow with tools, authority, and time.
           </p>
           <h2>Design the work, not the slogan</h2>
           <p>
-            Who reviews? With what evidence? How long may a case wait? What ships if the reviewer is unavailable? Which actions are never eligible for auto-complete?
+            Who reviews? With what evidence? How long may a case wait? What ships if the reviewer is unavailable? Which actions are never eligible for auto-complete? Encode those answers in workflow and access control. Training slides do not stop a misconfigured default.
           </p>
           <p>
-            Encode those answers in workflow and access control. Training slides do not stop a misconfigured default.
+            Give reviewers the same context the model had—and the context the model lacked. A thumbs-up on a summary without the source documents is theatre. A decision screen should show inputs, suggested output, policy references, and a clear action set: accept, edit, reject, escalate.
+          </p>
+          <h2>Capacity planning is part of the design</h2>
+          <p>
+            Estimate arrival rates and handling times. If the AI “saves 70% of effort” but volume grows 5× because the channel became cheaper to use, you may need more humans, not fewer. Capacity math belongs in the business case, not in a footnote.
+          </p>
+          <p>
+            Define overflow behaviour: spill to another queue, degrade to deterministic rules, pause intake, or page an on-call product owner. Silence—“we will cope”—is not a strategy.
+          </p>
+          <h2>Authority and dual control</h2>
+          <p>
+            Map which roles can approve which risk classes. High-impact actions may need dual control even when the model is confident. Low-impact actions may allow accept-by-exception with sampling audit.
+          </p>
+          <p>
+            Do not let a single shared service account be “the human.” Identity, attribution, and non-repudiation matter when something goes wrong.
           </p>
           <h2>Measure the loop</h2>
           <p>
-            Track override rates, time-in-queue, and disagreement clusters. Rising overrides mean the model or the process is wrong—not that humans should click faster.
+            Track override rates, time-in-queue, disagreement clusters, and rework. Rising overrides mean the model or the process is wrong—not that humans should click faster. Falling overrides with rising complaints may mean reviewers are rubber-stamping under pressure.
           </p>
+          <p>
+            Use these metrics in the same forums that review incident and quality data. Human-in-the-loop is an operational capability, not a one-time design checkbox.
+          </p>
+          <h2>When to remove the human</h2>
+          <p>
+            Automation of the final decision can be a later stage, earned by evidence: stable quality, clear blast radius, tested fallbacks, and risk acceptance on record. Skipping straight to autonomy because a competitor’s keynote said “agents” is how controlled industries manufacture avoidable incidents.
+          </p>
+          <p>
+            Design the loop so it can tighten with proof. That is architecture. Hoping the loop exists because a slide said so is not.
+          </p>
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+          <!--lengthened-->
         </div>
       </article>
     </main>

@@ -19,20 +19,20 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Refactoring with AI without losing system intent",
-    "datePublished": "2026-07-06",
-    "dateModified": "2026-07-06",
-    "author": {
-      "@type": "Person",
-      "name": "Allan Ramos",
-      "url": "https://allanramos.com/"
-    },
-    "url": "https://allanramos.com/blog/refactoring-with-ai-without-losing-intent/",
-    "description": "AI can reshuffle code fluently. Preserving why the system is shaped this way still requires humans and tests that encode intent.",
-    "mainEntityOfPage": "https://allanramos.com/blog/refactoring-with-ai-without-losing-intent/"
-  }
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Refactoring with AI without losing system intent",
+  "datePublished": "2026-07-06",
+  "dateModified": "2026-07-06",
+  "author": {
+    "@type": "Person",
+    "name": "Allan Ramos",
+    "url": "https://allanramos.com/"
+  },
+  "url": "https://allanramos.com/blog/refactoring-with-ai-without-losing-intent/",
+  "description": "AI can reshuffle code fluently. Preserving why the system is shaped this way still requires humans and tests that encode intent.",
+  "mainEntityOfPage": "https://allanramos.com/blog/refactoring-with-ai-without-losing-intent/"
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,16 +63,177 @@
         <h1>Refactoring with AI without losing system intent</h1>
         <div class="body">
           <p>
-            Ask a model to “clean this up” and it will. It may also erase a quirk that encodes a regulatory edge case or a performance trick paid for in production blood.
+            Ask a model to “clean this up” and it will. It may also erase a quirk that encodes a regulatory edge case or a performance trick paid for in production blood. Fluency is not understanding. Refactoring with AI is powerful when intent is fenced; dangerous when intent lives only in the heads of people who just left.
+          </p>
+          <p>
+            The goal of refactoring is to preserve behaviour while improving structure—or to change behaviour deliberately and visibly. AI is a strong pair for the mechanical moves. It is a weak guardian of unspoken purpose.
           </p>
           <h2>Anchor on behaviour</h2>
           <p>
-            Characterize first: tests, contract checks, golden files. Then let AI propose structural moves inside that fence. Prefer small vertical slices over big-bang rewrites the model hallucinated as simple.
+            Characterize first: tests, contract checks, golden files, recorded traffic where lawful and practical. Then let AI propose structural moves inside that fence. Prefer small vertical slices over big-bang rewrites the model hallucinated as simple.
+          </p>
+          <p>
+            If you cannot describe the behaviour you must keep, you are not refactoring—you are rewriting under anaesthetic. Wake up before you cut.
           </p>
           <h2>Keep the story in the repo</h2>
           <p>
-            Architecture decision records and domain glossaries are fuel for good AI assistance. Without them, the model invents a plausible history that never happened.
+            Architecture decision records and domain glossaries are fuel for good AI assistance. Without them, the model invents a plausible history that never happened and “simplifies” away the compromise that made the system shippable.
           </p>
+          <p>
+            Before a large assisted refactor, write a one-page intent brief: what must not change, what may change, known landmines, and the rollback plan. Paste that brief into the working context every session. Do not rely on chat memory across days.
+          </p>
+          <h2>Mechanical moves vs semantic moves</h2>
+          <p>
+            Safe mechanical moves: rename within a boundary, extract functions, reorganize files, update call sites to a new internal API with tests green. Risky semantic moves: changing concurrency, altering error handling, merging entities, removing validation “nobody uses.”
+          </p>
+          <p>
+            Route semantic moves through explicit human design. Let AI implement after the decision is recorded. Mixing both in one giant generated PR is how intent dies quietly.
+          </p>
+          <h2>Verify in production-like conditions</h2>
+          <p>
+            Unit greens are necessary and insufficient. Run contract tests against real dependencies in a controlled environment. Compare metrics that matter: latency, error codes, batch durations, memory. For data transformations, compare outputs on held-aside corpora.
+          </p>
+          <p>
+            When behaviour is probabilistic, refactor the deterministic shell first. Do not “clean” prompts and business rules in the same change set if you can avoid it.
+          </p>
+          <h2>Team habits</h2>
+          <p>
+            Make it normal to say what the assistant did and what you verified. Prefer reviewers who challenge intent loss over reviewers who only discuss style. Celebrate deletions of duplicate generated modules as much as new features.
+          </p>
+          <p>
+            Used this way, AI shortens the grind of refactoring without selling the system’s purpose for a tidier file tree.
+          </p>
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+          <!--lengthened-->
         </div>
       </article>
     </main>

@@ -19,20 +19,20 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "A prompt is not a requirement",
-    "datePublished": "2026-07-14",
-    "dateModified": "2026-07-14",
-    "author": {
-      "@type": "Person",
-      "name": "Allan Ramos",
-      "url": "https://allanramos.com/"
-    },
-    "url": "https://allanramos.com/blog/prompt-is-not-a-requirement/",
-    "description": "Prompts steer models. Requirements bind people, systems, and risk. Mixing them up produces demos that cannot be operated.",
-    "mainEntityOfPage": "https://allanramos.com/blog/prompt-is-not-a-requirement/"
-  }
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "A prompt is not a requirement",
+  "datePublished": "2026-07-14",
+  "dateModified": "2026-07-14",
+  "author": {
+    "@type": "Person",
+    "name": "Allan Ramos",
+    "url": "https://allanramos.com/"
+  },
+  "url": "https://allanramos.com/blog/prompt-is-not-a-requirement/",
+  "description": "Prompts steer models. Requirements bind people, systems, and risk. Mixing them up produces demos that cannot be operated.",
+  "mainEntityOfPage": "https://allanramos.com/blog/prompt-is-not-a-requirement/"
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,19 +63,112 @@
         <h1>A prompt is not a requirement</h1>
         <div class="body">
           <p>
-            Teams paste acceptance criteria into a prompt and call the story done. The model may produce something that looks right once. Production needs behaviour that is testable, versioned, and owned when it fails at 2 a.m.
+            Teams paste acceptance criteria into a prompt and call the story done. The model may produce something that looks right once. Production needs behaviour that is testable, versioned, and owned when it fails at 2 a.m. A prompt is an implementation artefact. A requirement is a commitment about outcomes and constraints.
+          </p>
+          <p>
+            Confusing the two is understandable: both are text, both influence behaviour. Only one survives a model upgrade, a vendor switch, or a new hire who never saw the original chat.
           </p>
           <h2>Separate the layers</h2>
           <p>
-            Requirements: outcomes, constraints, SLAs, data rules, and who decides exceptions. Design: interfaces, failure modes, fallbacks. Prompts and tools: implementation details under that design.
+            Requirements: outcomes, constraints, SLAs, data rules, and who decides exceptions. Design: interfaces, failure modes, fallbacks, and the human loop. Prompts, tools, and model choices: implementation details under that design.
           </p>
           <p>
-            When the model changes, requirements should still hold. If your only specification is a prompt file, you have coupled the business to a vendor’s next release notes.
+            When the model changes, requirements should still hold. If your only specification is a prompt file, you have coupled the business to a vendor’s next release notes. That is the software equivalent of storing business rules only in a stored procedure nobody documents—except the procedure now rewrites itself when the provider ships a new snapshot.
           </p>
           <h2>Write what you can verify</h2>
           <p>
-            Prefer examples, golden cases, and measurable thresholds over vibes. AI can help draft tests; humans still decide which cases represent money, risk, and reputation.
+            Prefer examples, golden cases, and measurable thresholds over vibes. “Be concise and accurate” is not a test. “For these fifty claim summaries, extract these fields with at least X precision, and never invent a policy number” is a test.
           </p>
+          <p>
+            AI can help draft tests; humans still decide which cases represent money, risk, and reputation. Involve domain experts in building the case set. Engineers alone will under-sample the weirdness that operations already knows by heart.
+          </p>
+          <h2>Traceability</h2>
+          <p>
+            Keep a thin chain from requirement ID to evaluation case to prompt version to release. You do not need a heavyweight ALM theatre. You do need to answer, under audit or incident review: what did we intend, what did we ship, and what evidence said it was good enough?
+          </p>
+          <p>
+            Store prompts in the same change-control world as code. Review them. Diff them. Tag them with the requirement they serve. A prompt edited live in a portal with no history is an uncontrolled production change.
+          </p>
+          <h2>Conversation design is still product design</h2>
+          <p>
+            For assistants, the dialogue is part of the product. Requirements should cover escalation, refusal, and what the assistant must not do—not only the happy path tone. “Never provide regulated advice; offer to connect to an agent” is a requirement. The wording that implements it is a prompt.
+          </p>
+          <p>
+            Product managers who only write brand voice guidelines leave the hard behavioural rules to engineers improvising under deadline. That improvisation becomes the de facto policy.
+          </p>
+          <h2>Practical working agreement</h2>
+          <p>
+            Agree in the team: no story is ready for AI implementation until outcomes and constraints are written outside the prompt. No release without evaluation against those constraints. No prompt change in production without the same review bar as a code change.
+          </p>
+          <p>
+            That agreement restores an old truth in a new medium: software still needs requirements. Models need instructions. Do not let the second pretend to be the first.
+          </p>
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+          <!--lengthened-->
         </div>
       </article>
     </main>

@@ -19,20 +19,20 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "Platform teams and AI toolchains",
-    "datePublished": "2026-07-05",
-    "dateModified": "2026-07-05",
-    "author": {
-      "@type": "Person",
-      "name": "Allan Ramos",
-      "url": "https://allanramos.com/"
-    },
-    "url": "https://allanramos.com/blog/platform-teams-and-ai-toolchains/",
-    "description": "If every squad wires its own models, keys, and prompts, you get shadow AI. Platform should offer a paved road with guardrails.",
-    "mainEntityOfPage": "https://allanramos.com/blog/platform-teams-and-ai-toolchains/"
-  }
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Platform teams and AI toolchains",
+  "datePublished": "2026-07-05",
+  "dateModified": "2026-07-05",
+  "author": {
+    "@type": "Person",
+    "name": "Allan Ramos",
+    "url": "https://allanramos.com/"
+  },
+  "url": "https://allanramos.com/blog/platform-teams-and-ai-toolchains/",
+  "description": "If every squad wires its own models, keys, and prompts, you get shadow AI. Platform should offer a paved road with guardrails.",
+  "mainEntityOfPage": "https://allanramos.com/blog/platform-teams-and-ai-toolchains/"
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,19 +63,174 @@
         <h1>Platform teams and AI toolchains</h1>
         <div class="body">
           <p>
-            Developers will use AI with or without IT’s blessing. The architecture choice is chaos versus a supported path that is safer and faster than the shadow path.
+            Developers will use AI with or without IT’s blessing. The architecture choice is chaos versus a supported path that is safer and faster than the shadow path. Platform teams are the natural owners of that path—the same way they own CI, observability baselines, and cloud landing zones.
+          </p>
+          <p>
+            If platform only publishes a policy PDF saying “be careful,” shadow AI wins. If platform ships a paved road, most people will take it.
           </p>
           <h2>What the paved road includes</h2>
           <p>
-            Approved models and regions, secret handling, prompt/version stores, evaluation hooks, cost budgets, and patterns for RAG against sanctioned corpora.
+            Approved models and regions, secret handling, prompt and version stores, evaluation hooks, cost budgets, identity integration, logging standards, and patterns for RAG against sanctioned corpora. Self-service beats ticket hell.
           </p>
           <p>
-            Self-service beats ticket hell. If the official path takes weeks, shadow AI wins.
+            Include reference implementations: a sample service that calls the gateway correctly, a template for an assistive feature with human confirmation, and a cookbook for evaluation gates in CI. Documentation without runnable defaults is ignored under deadline pressure.
+          </p>
+          <h2>Guardrails without theatre</h2>
+          <p>
+            Centralize authentication to model providers. Scan for secrets in prompts. Enforce network egress rules. Apply DLP where appropriate. Rate-limit by team and workload. These controls should be default-on and visible when they block something—with a clear exception process.
+          </p>
+          <p>
+            Avoid a committee for every experiment. Use risk tiers: open sandbox with synthetic data, internal assistive tools with standard controls, customer-facing decisioning with architecture and risk review.
           </p>
           <h2>Partner with risk early</h2>
           <p>
-            Platform, security, and risk should publish allowed use cases and forbidden ones together. Ambiguity is where unsafe demos go to production.
+            Platform, security, and risk should publish allowed use cases and forbidden ones together. Ambiguity is where unsafe demos go to production. A living register of approved patterns beats annual policy rediscovery.
           </p>
+          <p>
+            Bring risk into platform design so controls are product features, not surprise audits. When risk only arrives at the end, every project becomes a negotiation under panic.
+          </p>
+          <h2>Product management for internal AI</h2>
+          <p>
+            Treat the toolchain as an internal product with users, SLAs, and a roadmap. Measure adoption, time-to-first-call, incident count, and cost predictability. Interview squads that bypassed the road and learn why.
+          </p>
+          <p>
+            Staff the platform with engineers who understand delivery pain. A platform that feels like bureaucracy will be routed around even when it is technically superior.
+          </p>
+          <h2>Outcome to aim for</h2>
+          <p>
+            The success condition is not “we banned shadow tools.” It is “the official path is the easiest way to get safe work done.” When that is true, AI accelerates the enterprise instead of fragmenting it into a hundred key and prompt islands.
+          </p>
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+          <!--lengthened-->
         </div>
       </article>
     </main>

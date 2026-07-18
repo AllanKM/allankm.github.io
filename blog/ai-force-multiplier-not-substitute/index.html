@@ -19,20 +19,20 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "AI as a force multiplier, not a substitute for design",
-    "datePublished": "2026-07-17",
-    "dateModified": "2026-07-17",
-    "author": {
-      "@type": "Person",
-      "name": "Allan Ramos",
-      "url": "https://allanramos.com/"
-    },
-    "url": "https://allanramos.com/blog/ai-force-multiplier-not-substitute/",
-    "description": "Copilots accelerate typing. They do not replace ownership of intent, interfaces, or the failure modes the business will feel.",
-    "mainEntityOfPage": "https://allanramos.com/blog/ai-force-multiplier-not-substitute/"
-  }
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI as a force multiplier, not a substitute for design",
+  "datePublished": "2026-07-17",
+  "dateModified": "2026-07-17",
+  "author": {
+    "@type": "Person",
+    "name": "Allan Ramos",
+    "url": "https://allanramos.com/"
+  },
+  "url": "https://allanramos.com/blog/ai-force-multiplier-not-substitute/",
+  "description": "Copilots accelerate typing. They do not replace ownership of intent, interfaces, or the failure modes the business will feel.",
+  "mainEntityOfPage": "https://allanramos.com/blog/ai-force-multiplier-not-substitute/"
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,25 +63,90 @@
         <h1>AI as a force multiplier, not a substitute for design</h1>
         <div class="body">
           <p>
-            Teams adopt AI coding tools for speed. Fair. The trap is treating throughput of diffs as progress on architecture. Generated code still has to sit inside a capability map, an ownership model, and a change path the organization can absorb.
+            Teams adopt AI coding tools for speed. Fair. The trap is treating throughput of diffs as progress on architecture. Generated code still has to sit inside a capability map, an ownership model, and a change path the organization can absorb. A force multiplier amplifies a direction you already chose. If the direction is unclear—shared services versus product silos, buy versus build, synchronous versus evented—AI helps you dig the wrong hole faster.
           </p>
           <p>
-            A force multiplier amplifies a direction you already chose. If the direction is unclear—shared services vs product silos, buy vs build, synchronous vs evented—AI helps you dig the wrong hole faster.
+            I am not arguing against assistants. Used well, they remove friction from mechanical work and let senior engineers spend attention on boundaries and risk. Used poorly, they create a theatre of productivity: more pull requests, more “done” tickets, and an estate that is harder to reason about every sprint.
           </p>
           <h2>What AI actually multiplies</h2>
           <p>
-            Boilerplate, tests scaffolds, migrations of known patterns, and exploration of unfamiliar APIs. It is excellent at local completion when the surrounding design is already coherent.
+            Boilerplate, test scaffolds, migrations of known patterns, and exploration of unfamiliar APIs are natural fits. The model is excellent at local completion when the surrounding design is already coherent. It can draft a client for a documented interface, propose refactors inside a module, or generate table-driven tests once you specify the cases that matter.
           </p>
           <p>
-            It is weak at deciding which boundary should exist, which data must not leave a trust zone, or which sequence of releases keeps a regulated estate alive during cutover.
+            It is weak at deciding which boundary should exist, which data must not leave a trust zone, or which sequence of releases keeps a regulated estate alive during cutover. Those decisions require context the prompt window rarely holds: political ownership, regulatory evidence, partner contracts, and the operational reality of who gets paged at 2 a.m.
           </p>
-          <h2>Keep design decisions human</h2>
+          <p>
+            When leaders measure only lines merged or tickets closed, they accidentally incentivize the weak zone. The organization celebrates volume while the hard questions—what we will not build, what we will share, what we will retire—remain unanswered.
+          </p>
+          <h2>Design decisions stay human</h2>
           <p>
             Record the decisions AI cannot own: capability ownership, non-functionals that bind the board, and the explicit “we will not do X.” Review generated change against those records the same way you review human change—only faster on the mechanical parts.
           </p>
           <p>
-            Speed without design ownership is just technical debt with better autocomplete.
+            A practical habit is to keep architecture decision records short and current, then require that any AI-assisted change crossing a boundary cite the relevant decision or open a new one. That sounds bureaucratic until you compare it with reverse-engineering intent from six months of generated modules that almost share a domain language.
           </p>
+          <p>
+            Non-functionals deserve the same treatment. Latency budgets, auditability, data residency, and recovery objectives are not “nice to have comments.” If the assistant invents a caching layer that stores customer data in a region you cannot defend, speed became a compliance incident.
+          </p>
+          <h2>Where the multiplier pays off</h2>
+          <p>
+            The highest return I see is when a team already has a clear paved road: approved libraries, golden paths for services, contract tests, and a glossary. The assistant then fills in known shapes. Onboarding accelerates. Tedious migrations shrink. Engineers spend more time on the exception paths that encode real business risk.
+          </p>
+          <p>
+            The lowest return is greenfield chaos: no domain model, no ownership, and a mandate to “use AI everywhere.” You get many plausible microservices, inconsistent auth patterns, and duplicated entities named customer, client, and party. Cleaning that up costs more than writing it carefully once.
+          </p>
+          <h2>Operating model implications</h2>
+          <p>
+            If AI changes how code is produced, it should also change how work is planned and reviewed. Split backlog items into “design-complete” and “implementation.” Do not start generation until interfaces, data classes, and failure modes are agreed. Make review focus on invariants and boundaries, not style nits the linter already covers.
+          </p>
+          <p>
+            Platform teams should publish prompts and patterns that encode house rules—the same way they publish Terraform modules. Leaving every developer to invent their own AI workflow recreates shadow IT inside the IDE.
+          </p>
+          <h2>A simple test for leaders</h2>
+          <p>
+            Ask: if we turned the assistants off tomorrow, would we still know what we are building and why? If the answer depends on chat history, you never had design ownership—you had a session. Speed without design ownership is technical debt with better autocomplete. Treat AI as a multiplier of clarity you already enforced, not as a substitute for the architecture conversation the business still needs.
+          </p>
+
+          <h2>Patterns that work in real teams</h2>
+          <p>
+            The teams that gain from assistants usually already practice trunk-based
+            discipline, contract testing, and clear module ownership. The assistant then
+            fills known shapes: clients, mappers, test tables, migration scripts. Senior
+            engineers spend review time on invariants and cross-boundary effects instead
+            of debating brace style.
+          </p>
+          <p>
+            Another working pattern is pair sessions where one person owns intent and the
+            other drives the tool. Intent stays spoken and written. The tool stays in the
+            implementation lane. When both people defer to the model, you get fluent code
+            with orphaned purpose.
+          </p>
+          <h2>Anti-patterns to stop early</h2>
+          <p>
+            Generating a service before the interface exists. Accepting large diffs nobody
+            can explain. Measuring success only by commits. Pasting production data into
+            prompts. Letting the assistant invent domain names that almost match the
+            glossary. Each of these converts a multiplier into a debt factory.
+          </p>
+          <p>
+            Stop them with light process: definition of ready that includes interface and
+            data class, review checklists that ask for ownership, and platform defaults
+            that make the safe path the easy path. Culture beats heroics.
+          </p>
+          <h2>What to tell sponsors</h2>
+          <p>
+            Sponsors hear that AI will cut delivery cost in half. Sometimes cycle time
+            improves. Durable savings appear only when design quality and operational
+            ownership improve with it. Tell them the truth: assistants amplify the system
+            you already have. If that system lacks clarity, you will amplify confusion at
+            lower marginal cost per wrong module.
+          </p>
+          <p>
+            Fund design capacity alongside licenses. Fund cleanup capacity alongside
+            velocity targets. Then the multiplier has something worth multiplying.
+          </p>
+
+          <!--lengthened-->
         </div>
       </article>
     </main>

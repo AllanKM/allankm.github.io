@@ -19,20 +19,20 @@
 
   <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "headline": "When not to put a model in the critical path",
-    "datePublished": "2026-07-12",
-    "dateModified": "2026-07-12",
-    "author": {
-      "@type": "Person",
-      "name": "Allan Ramos",
-      "url": "https://allanramos.com/"
-    },
-    "url": "https://allanramos.com/blog/when-not-to-put-a-model-in-the-critical-path/",
-    "description": "Probabilistic components belong where failure is contained. Money movement, hard compliance gates, and irreversible actions need deterministic cores.",
-    "mainEntityOfPage": "https://allanramos.com/blog/when-not-to-put-a-model-in-the-critical-path/"
-  }
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "When not to put a model in the critical path",
+  "datePublished": "2026-07-12",
+  "dateModified": "2026-07-12",
+  "author": {
+    "@type": "Person",
+    "name": "Allan Ramos",
+    "url": "https://allanramos.com/"
+  },
+  "url": "https://allanramos.com/blog/when-not-to-put-a-model-in-the-critical-path/",
+  "description": "Probabilistic components belong where failure is contained. Money movement, hard compliance gates, and irreversible actions need deterministic cores.",
+  "mainEntityOfPage": "https://allanramos.com/blog/when-not-to-put-a-model-in-the-critical-path/"
+}
   </script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -63,19 +63,109 @@
         <h1>When not to put a model in the critical path</h1>
         <div class="body">
           <p>
-            Models are powerful advisors and weak cashiers. If a wrong answer moves money, grants access, or closes a claim without recourse, you have placed variance where the business needs certainty.
+            Models are powerful advisors and weak cashiers. If a wrong answer moves money, grants access, or closes a claim without recourse, you have placed variance where the business needs certainty. Architecture is the craft of putting uncertainty where the blast radius is acceptable.
+          </p>
+          <p>
+            Critical path here means: if this component is wrong, slow, or unavailable, the business outcome fails in a way customers or regulators will feel immediately.
           </p>
           <h2>Prefer assist over decide</h2>
           <p>
-            Use models to draft, rank, summarize, and flag. Keep the final commit to a deterministic rule engine, dual control, or a named human role—especially in regulated flows.
+            Use models to draft, rank, summarize, and flag. Keep the final commit to a deterministic rule engine, dual control, or a named human role—especially in regulated flows. Assistance can still create enormous value: faster case preparation, better routing, earlier fraud suspicion.
           </p>
           <p>
-            Latency and availability matter too. A model dependency that cannot degrade gracefully becomes an outage class of its own.
+            The design mistake is collapsing assist into silent decide because the demo looked accurate on a sunny dataset. Accuracy in the lab does not erase the need for an authoritative decision step when the stakes are irreversible.
+          </p>
+          <h2>Availability and latency are part of the placement decision</h2>
+          <p>
+            A model dependency that cannot degrade gracefully becomes an outage class of its own. If checkout, quote bind, or payment authorization waits on a generative call with no timeout strategy, you have imported a new single point of failure with fuzzy failure modes.
+          </p>
+          <p>
+            Design budgets explicitly. What is the maximum wait? What happens on timeout—fail closed, fail to human, or proceed on deterministic rules? Which journeys are allowed to be unavailable when the model provider has a bad afternoon?
           </p>
           <h2>Design the fallback first</h2>
           <p>
-            Before go-live, answer: what happens when the model is down, slow, or confidently wrong? If the answer is “the journey stops,” reconsider the placement.
+            Before go-live, answer: what happens when the model is down, slow, or confidently wrong? If the answer is “the journey stops,” reconsider the placement. Fallbacks are not an operations afterthought; they are the architecture of resilience.
           </p>
+          <p>
+            For ranking and recommendation, fallback can be a business-rule order. For document extraction, fallback can be manual entry with SLA. For conversational deflection, fallback can be a clean handoff to an agent with full context—not a dead end that strands the customer in a loop.
+          </p>
+          <h2>Irreversibility as a design test</h2>
+          <p>
+            Ask whether the action can be undone cheaply. Sending a draft email to an internal queue is reversible. Wiring a payment, changing a legal agreement, or denying coverage in a way that starts a complaint clock is not. The more irreversible the action, the less a probabilistic component should be allowed to act alone.
+          </p>
+          <p>
+            This test also guides data writes. Letting a model freely update systems of record is usually a mistake. Prefer proposals, staging tables, or dual-control commits.
+          </p>
+          <h2>A placement pattern that holds</h2>
+          <p>
+            Keep a deterministic core for money, identity, and compliance gates. Wrap AI around preparation, explanation, and prioritization. Instrument disagreement between model and core so you learn. That pattern is less glamorous than “autonomous agents,” and far more operable in banking and insurance estates that must still be standing next year.
+          </p>
+
+          <h2>How this plays out in delivery</h2>
+          <p>
+            In practice, the difference between a slide and an operable change is whether
+            teams can point to owners, controls, and evidence under pressure. That pressure
+            arrives as an incident, an audit question, a vendor outage, or a steering
+            committee that wants to scale a demo. If those answers are improvisations, the
+            feature was never production-ready—regardless of how polished the interface
+            looked in a pilot.
+          </p>
+          <p>
+            Delivery leaders should therefore reserve explicit capacity for the boring
+            work: contracts, runbooks, evaluation packs, fallback paths, and decision
+            records. Boring work is what makes ambitious AI and platform change survivable.
+            Skipping it to protect a velocity chart is how organizations repurchase the
+            same programme every three years under a new name.
+          </p>
+          <h2>Questions worth asking in design review</h2>
+          <p>
+            Who owns the outcome after launch? What fails first when the dependency is
+            slow or wrong? Which data classes are in motion, and under which policy?
+            What would make us pause or roll back within an hour? What evidence will we
+            examine weekly to know quality is holding?
+          </p>
+          <p>
+            If a proposal cannot answer those questions without hand-waving, keep the
+            scope in a controlled experiment. Experiments are useful. Unowned production
+            traffic is not an experiment—it is a risk acceptance you forgot to record.
+          </p>
+          <h2>Working habits that keep quality compounding</h2>
+          <p>
+            Write short decision records when you cross a boundary. Keep a living list of
+            invariants for each critical capability. Review with a checklist that targets
+            blast radius rather than style. Instrument silent failure modes, not only HTTP
+            errors. Revisit model, prompt, and vendor changes with the same seriousness as
+            database migrations.
+          </p>
+          <p>
+            None of these habits require a new framework brand. They require leadership
+            attention and a refusal to confuse demos with operable systems. Teams that
+            practice them can adopt assistants, agents, and new platforms without losing
+            the enterprise plot.
+          </p>
+          <h2>A note on language and accountability</h2>
+          <p>
+            Replace slogans with operational nouns: capability, owner, control, fallback,
+            evidence, exit. Language shapes governance. Teams that speak only in broad
+            transformation slogans struggle to assign accountability. Teams that speak in
+            capabilities can fund, staff, measure, and stop work when the evidence says
+            stop.
+          </p>
+          <p>
+            Hold that vocabulary in architecture forums and programme boards. Over time
+            it becomes the shared spine that lets software development absorb AI tools
+            without fragmenting into disconnected experiments.
+          </p>
+          <h2>Closing</h2>
+          <p>
+            The through-line is simple: treat AI-related change as architecture and
+            operations work, not as magic. Make ownership explicit, put uncertainty where
+            blast radius is acceptable, measure what can silently fail, and refuse to
+            scale what you cannot run. That discipline is how software organizations get
+            durable value from new techniques instead of a temporary theatre of progress.
+          </p>
+
+          <!--lengthened-->
         </div>
       </article>
     </main>
