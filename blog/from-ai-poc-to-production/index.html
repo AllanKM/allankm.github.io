@@ -238,6 +238,122 @@
           </p>
 
           <!--lengthened-->
+
+          <h2>PoC exit report template</h2>
+          <p>
+            What outcome was proven? On what data? What did not work? What non-functionals
+            remain unproven? What operating model is required? What is the cost model at
+            expected volume? What risks are accepted? What is explicitly out of scope for
+            v1? Who will own the service three months after launch?
+          </p>
+          <p>
+            If the PoC team cannot write that report, they are not ready to promote. A
+            demo video is not an exit report.
+          </p>
+          <h2>Pilot design</h2>
+          <p>
+            Prefer a pilot with real users, limited blast radius, strong telemetry, and a
+            clear go/no-go date. Avoid eternal pilots that become unofficial production
+            without controls. Write the promotion and kill criteria before day one.
+          </p>
+          <p>
+            Choose cohorts that can give feedback quickly. A quiet cohort with no
+            measurement plan teaches you nothing except that nobody complained loudly
+            enough yet.
+          </p>
+          <h2>From hero project to owned service</h2>
+          <p>
+            Transition documentation, access, and on-call before you scale marketing.
+            Replace personal cloud projects with team-owned infrastructure. Move knowledge
+            out of one data scientist’s head into runbooks and ADRs.
+          </p>
+          <p>
+            Celebrate the unglamorous handoff. Organizations that only celebrate demos
+            will keep living in PoC mode while competitors quietly industrialize.
+          </p>
+
+
+          <h2>Putting it into the operating rhythm</h2>
+          <p>
+            None of this sticks if it appears only in a one-off workshop. Put the
+            checkpoints into existing forums: design authority, risk intake, sprint
+            reviews, and operations reviews. Assign named owners. Review the same metrics
+            until the behaviour becomes muscle memory. Tools change. Operating rhythm is
+            how architecture survives tool change.
+          </p>
+          <p>
+            When you expand scope—new channel, new market, new model provider—re-run the
+            same questions rather than assuming last quarter’s controls still fit. Scope
+            expansion is where quiet regressions hide. A short re-certification beats a
+            long incident report.
+          </p>
+          <h2>What good looks like after six months</h2>
+          <p>
+            You can name owners for each AI-touched capability. You can show evaluation
+            trends and cost trends. You can pause a feature without heroics. Engineers
+            can explain the boundaries without opening a chat history. Sponsors hear
+            outcome language and evidence, not only model brand names. That is the
+            standard. Aim for it deliberately.
+          </p>
+
+          <!--deepened-->
+
+          <h2>Field notes from programmes that stuck</h2>
+          <p>
+            The programmes that keep their gains share a few unglamorous traits. They name
+            a single accountable owner for each capability touched by AI or platform
+            change. They keep a thin evidence pack current: what the feature does, which
+            data it uses, how quality is measured, and how to pause it. They review cost
+            and quality on a fixed weekly or biweekly cadence instead of waiting for a
+            quarterly surprise.
+          </p>
+          <p>
+            They also refuse to expand scope while basic controls are missing. That refusal
+            feels slow in the week it happens and fast in the year it saves. Sponsors
+            accept it more readily when you offer a dated path: we can widen to segment B
+            when override rates stay under threshold and fallback drills pass. Conditional
+            speed is still speed—just adult speed.
+          </p>
+          <h2>Common failure modes to watch for</h2>
+          <p>
+            Eternal pilots that serve real customers without on-call. Prompt edits in
+            production with no version history. Retrieval corpora that mix clearance
+            levels. Success metrics that count messages sent instead of outcomes achieved.
+            Architecture reviews that only admire diagrams after contracts are signed.
+            Cleanup work that is always scheduled after this critical launch.
+          </p>
+          <p>
+            Each failure mode is preventable with a small control. The danger is not that
+            teams cannot invent controls. The danger is that delivery pressure makes
+            skipping them look rational until the incident report is written.
+          </p>
+          <h2>A ninety-day improvement plan</h2>
+          <p>
+            Days 1 to 30: inventory AI-touched journeys, owners, and gaps in logging,
+            evaluation, and fallback. Publish the list without blame. Days 31 to 60: close
+            the top three blast-radius gaps; stand up a short design-authority slot for
+            new use cases; put cost alerts in place. Days 61 to 90: run one controlled
+            promotion from pilot to production using a written exit report; kill or
+            contain at least one unmanaged experiment.
+          </p>
+          <p>
+            At day ninety, present evidence trends rather than tool logos. Leaders can
+            fund what they can see. Visibility is a prerequisite for sustained investment
+            in quality.
+          </p>
+          <h2>How this article should change Monday morning</h2>
+          <p>
+            Pick one capability you touch. Write the owner, the invariant that must not
+            break, the fallback if the AI dependency fails, and the metric you will check
+            next week. Share it with the people who can correct you. Then make one
+            concrete backlog item that turns a gap into a control.
+          </p>
+          <p>
+            Long articles do not improve estates. Changed operating habits do. Use this
+            piece as a mirror, not as literature. If nothing in your plan of record moves
+            after reading it, the reading did not count.
+          </p>
+
         </div>
       </article>
     </main>

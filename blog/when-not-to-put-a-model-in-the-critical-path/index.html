@@ -166,6 +166,169 @@
           </p>
 
           <!--lengthened-->
+
+          <h2>Decision table for placement</h2>
+          <p>
+            If the output is advisory and reversible, a model may sit closer to the user.
+            If the output triggers money movement, legal commitment, access grant, or
+            regulatory clock, keep a deterministic or human commit step. If availability
+            requirements are strict, either keep the model off the synchronous path or
+            invest heavily in fallbacks and capacity.
+          </p>
+          <p>
+            Write that table into your architecture principles. Then every new AI story
+            can be placed without reinventing philosophy under deadline. Exceptions remain
+            possible—but they become recorded exceptions, not quiet shortcuts.
+          </p>
+          <h2>Example: claims triage versus claims settlement</h2>
+          <p>
+            Triage ranking for adjuster queues is often a good model placement: humans
+            still decide, blast radius is limited, fallback is FIFO. Auto-settlement of
+            claims above a threshold is a different animal. There you want rules, dual
+            control, fraud checks, and clear audit. A model may propose; it should not
+            silently pay.
+          </p>
+          <p>
+            Many failed programmes blur these two because the demo used the same UI
+            component. Architecture must keep them separate even when the vendor sells
+            them as one “AI claims suite.”
+          </p>
+          <h2>Performance budgets and chaos thinking</h2>
+          <p>
+            Set latency budgets and test them. Inject slowness and provider errors in
+            pre-production. Confirm the journey still meets business rules when the model
+            is unavailable. If the only recovery is “retry until the customer leaves,”
+            the placement is wrong.
+          </p>
+          <p>
+            Critical-path design is pessimistic on purpose. Optimism belongs in product
+            ideation. Production belongs to failure modes you have already rehearsed.
+          </p>
+
+
+          <h2>Putting it into the operating rhythm</h2>
+          <p>
+            None of this sticks if it appears only in a one-off workshop. Put the
+            checkpoints into existing forums: design authority, risk intake, sprint
+            reviews, and operations reviews. Assign named owners. Review the same metrics
+            until the behaviour becomes muscle memory. Tools change. Operating rhythm is
+            how architecture survives tool change.
+          </p>
+          <p>
+            When you expand scope—new channel, new market, new model provider—re-run the
+            same questions rather than assuming last quarter’s controls still fit. Scope
+            expansion is where quiet regressions hide. A short re-certification beats a
+            long incident report.
+          </p>
+          <h2>What good looks like after six months</h2>
+          <p>
+            You can name owners for each AI-touched capability. You can show evaluation
+            trends and cost trends. You can pause a feature without heroics. Engineers
+            can explain the boundaries without opening a chat history. Sponsors hear
+            outcome language and evidence, not only model brand names. That is the
+            standard. Aim for it deliberately.
+          </p>
+
+          <!--deepened-->
+
+          <h2>Field notes from programmes that stuck</h2>
+          <p>
+            The programmes that keep their gains share a few unglamorous traits. They name
+            a single accountable owner for each capability touched by AI or platform
+            change. They keep a thin evidence pack current: what the feature does, which
+            data it uses, how quality is measured, and how to pause it. They review cost
+            and quality on a fixed weekly or biweekly cadence instead of waiting for a
+            quarterly surprise.
+          </p>
+          <p>
+            They also refuse to expand scope while basic controls are missing. That refusal
+            feels slow in the week it happens and fast in the year it saves. Sponsors
+            accept it more readily when you offer a dated path: we can widen to segment B
+            when override rates stay under threshold and fallback drills pass. Conditional
+            speed is still speed—just adult speed.
+          </p>
+          <h2>Common failure modes to watch for</h2>
+          <p>
+            Eternal pilots that serve real customers without on-call. Prompt edits in
+            production with no version history. Retrieval corpora that mix clearance
+            levels. Success metrics that count messages sent instead of outcomes achieved.
+            Architecture reviews that only admire diagrams after contracts are signed.
+            Cleanup work that is always scheduled after this critical launch.
+          </p>
+          <p>
+            Each failure mode is preventable with a small control. The danger is not that
+            teams cannot invent controls. The danger is that delivery pressure makes
+            skipping them look rational until the incident report is written.
+          </p>
+          <h2>A ninety-day improvement plan</h2>
+          <p>
+            Days 1 to 30: inventory AI-touched journeys, owners, and gaps in logging,
+            evaluation, and fallback. Publish the list without blame. Days 31 to 60: close
+            the top three blast-radius gaps; stand up a short design-authority slot for
+            new use cases; put cost alerts in place. Days 61 to 90: run one controlled
+            promotion from pilot to production using a written exit report; kill or
+            contain at least one unmanaged experiment.
+          </p>
+          <p>
+            At day ninety, present evidence trends rather than tool logos. Leaders can
+            fund what they can see. Visibility is a prerequisite for sustained investment
+            in quality.
+          </p>
+          <h2>How this article should change Monday morning</h2>
+          <p>
+            Pick one capability you touch. Write the owner, the invariant that must not
+            break, the fallback if the AI dependency fails, and the metric you will check
+            next week. Share it with the people who can correct you. Then make one
+            concrete backlog item that turns a gap into a control.
+          </p>
+          <p>
+            Long articles do not improve estates. Changed operating habits do. Use this
+            piece as a mirror, not as literature. If nothing in your plan of record moves
+            after reading it, the reading did not count.
+          </p>
+
+
+          <h2>Further depth for practitioners</h2>
+          <p>
+            If you lead architecture or engineering in this space, keep a personal
+            register of decisions you refuse to leave implicit: where models may advise,
+            where humans must commit, which data products are canonical, and which
+            vendor exits you still believe are feasible. Revisit the register when a
+            programme asks for exceptions. Exceptions are fine. Untracked exceptions
+            become the real architecture.
+          </p>
+          <p>
+            Pair that register with two drills a year: a model-provider outage drill and
+            a quality-regression drill. Prove you can fail closed or fail to human
+            without inventing the process during the incident. Drills are cheaper than
+            press releases.
+          </p>
+          <h2>Stakeholder conversations that unblock work</h2>
+          <p>
+            With executives, speak outcomes, cost to serve, and residual risk—not model
+            parameter counts. With risk, bring evidence packs and known failure modes
+            early. With delivery, bring paved roads and review checklists that match
+            blast radius. With vendors, bring exit and data-use questions before demos
+            set the emotional agenda.
+          </p>
+          <p>
+            Most stalled AI and platform work is not stalled for lack of tools. It is
+            stalled for lack of a shared decision. Your job is often to force that
+            decision into the open, record it, and help the organization live with it.
+          </p>
+          <h2>Keep the bar honest</h2>
+          <p>
+            Shipping is not the same as absorbing. A feature that requires permanent
+            heroics is still a prototype, even with thousands of users. Hold the bar at
+            operable, explainable, and pausable. When those three are true, growth is
+            earned. When they are not, growth is borrowed from future incidents.
+          </p>
+          <p>
+            Long articles do not improve estates. Changed operating habits do. Use this
+            piece as a mirror, not as literature. If nothing in your plan of record moves
+            after reading it, the reading did not count.
+          </p>
+
         </div>
       </article>
     </main>

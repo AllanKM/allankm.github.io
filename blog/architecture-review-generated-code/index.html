@@ -175,6 +175,172 @@
           </p>
 
           <!--lengthened-->
+
+          <h2>Sample checklist for AI-heavy pull requests</h2>
+          <p>
+            Intent written by a human in five lines. Capability and owner named. New or
+            changed external interfaces listed. Data classes and residency called out.
+            Invariants that must still hold. Tests or evals that prove them. Explicit note
+            on what the assistant generated versus what was hand-verified. Rollback path.
+          </p>
+          <p>
+            If any item is blank for a cross-boundary change, the review is not ready.
+            That is not bureaucracy. That is how you keep volume from defeating judgment.
+            Inside a well-tested module with no new dependencies, a lighter path is fine.
+            Match ceremony to blast radius.
+          </p>
+          <h2>Handling disagreements</h2>
+          <p>
+            Authors sometimes defend generated structure because “the model suggested a
+            clean pattern.” Clean relative to what? Patterns must fit the house style and
+            the target architecture, not a generic textbook service layout. Reviewers
+            should be allowed to require alignment even when the generated code is locally
+            elegant.
+          </p>
+          <p>
+            When disagreement persists, escalate to the decision record. Either the ADR
+            already forbids the pattern, or you are proposing to change the ADR. Do not
+            resolve enterprise questions inside a single pull request comment thread under
+            time pressure.
+          </p>
+          <h2>Review load and staffing</h2>
+          <p>
+            AI increases diff volume. If you do not change staffing or automation, review
+            quality collapses. Options: more architects on rotation, stricter paved roads
+            that reduce novelty, stronger pre-merge fitness functions, and splitting
+            mechanical generation from semantic PRs.
+          </p>
+          <p>
+            Measure review latency and escaped defects together. Fast merges with rising
+            production pain mean you optimized the wrong variable. Slow merges with no
+            learning mean your checklist is theatre. Aim for fast on low risk, deliberate
+            on high risk, and continuous improvement of the gate itself.
+          </p>
+
+
+          <h2>Putting it into the operating rhythm</h2>
+          <p>
+            None of this sticks if it appears only in a one-off workshop. Put the
+            checkpoints into existing forums: design authority, risk intake, sprint
+            reviews, and operations reviews. Assign named owners. Review the same metrics
+            until the behaviour becomes muscle memory. Tools change. Operating rhythm is
+            how architecture survives tool change.
+          </p>
+          <p>
+            When you expand scope—new channel, new market, new model provider—re-run the
+            same questions rather than assuming last quarter’s controls still fit. Scope
+            expansion is where quiet regressions hide. A short re-certification beats a
+            long incident report.
+          </p>
+          <h2>What good looks like after six months</h2>
+          <p>
+            You can name owners for each AI-touched capability. You can show evaluation
+            trends and cost trends. You can pause a feature without heroics. Engineers
+            can explain the boundaries without opening a chat history. Sponsors hear
+            outcome language and evidence, not only model brand names. That is the
+            standard. Aim for it deliberately.
+          </p>
+
+          <!--deepened-->
+
+          <h2>Field notes from programmes that stuck</h2>
+          <p>
+            The programmes that keep their gains share a few unglamorous traits. They name
+            a single accountable owner for each capability touched by AI or platform
+            change. They keep a thin evidence pack current: what the feature does, which
+            data it uses, how quality is measured, and how to pause it. They review cost
+            and quality on a fixed weekly or biweekly cadence instead of waiting for a
+            quarterly surprise.
+          </p>
+          <p>
+            They also refuse to expand scope while basic controls are missing. That refusal
+            feels slow in the week it happens and fast in the year it saves. Sponsors
+            accept it more readily when you offer a dated path: we can widen to segment B
+            when override rates stay under threshold and fallback drills pass. Conditional
+            speed is still speed—just adult speed.
+          </p>
+          <h2>Common failure modes to watch for</h2>
+          <p>
+            Eternal pilots that serve real customers without on-call. Prompt edits in
+            production with no version history. Retrieval corpora that mix clearance
+            levels. Success metrics that count messages sent instead of outcomes achieved.
+            Architecture reviews that only admire diagrams after contracts are signed.
+            Cleanup work that is always scheduled after this critical launch.
+          </p>
+          <p>
+            Each failure mode is preventable with a small control. The danger is not that
+            teams cannot invent controls. The danger is that delivery pressure makes
+            skipping them look rational until the incident report is written.
+          </p>
+          <h2>A ninety-day improvement plan</h2>
+          <p>
+            Days 1 to 30: inventory AI-touched journeys, owners, and gaps in logging,
+            evaluation, and fallback. Publish the list without blame. Days 31 to 60: close
+            the top three blast-radius gaps; stand up a short design-authority slot for
+            new use cases; put cost alerts in place. Days 61 to 90: run one controlled
+            promotion from pilot to production using a written exit report; kill or
+            contain at least one unmanaged experiment.
+          </p>
+          <p>
+            At day ninety, present evidence trends rather than tool logos. Leaders can
+            fund what they can see. Visibility is a prerequisite for sustained investment
+            in quality.
+          </p>
+          <h2>How this article should change Monday morning</h2>
+          <p>
+            Pick one capability you touch. Write the owner, the invariant that must not
+            break, the fallback if the AI dependency fails, and the metric you will check
+            next week. Share it with the people who can correct you. Then make one
+            concrete backlog item that turns a gap into a control.
+          </p>
+          <p>
+            Long articles do not improve estates. Changed operating habits do. Use this
+            piece as a mirror, not as literature. If nothing in your plan of record moves
+            after reading it, the reading did not count.
+          </p>
+
+
+          <h2>Further depth for practitioners</h2>
+          <p>
+            If you lead architecture or engineering in this space, keep a personal
+            register of decisions you refuse to leave implicit: where models may advise,
+            where humans must commit, which data products are canonical, and which
+            vendor exits you still believe are feasible. Revisit the register when a
+            programme asks for exceptions. Exceptions are fine. Untracked exceptions
+            become the real architecture.
+          </p>
+          <p>
+            Pair that register with two drills a year: a model-provider outage drill and
+            a quality-regression drill. Prove you can fail closed or fail to human
+            without inventing the process during the incident. Drills are cheaper than
+            press releases.
+          </p>
+          <h2>Stakeholder conversations that unblock work</h2>
+          <p>
+            With executives, speak outcomes, cost to serve, and residual risk—not model
+            parameter counts. With risk, bring evidence packs and known failure modes
+            early. With delivery, bring paved roads and review checklists that match
+            blast radius. With vendors, bring exit and data-use questions before demos
+            set the emotional agenda.
+          </p>
+          <p>
+            Most stalled AI and platform work is not stalled for lack of tools. It is
+            stalled for lack of a shared decision. Your job is often to force that
+            decision into the open, record it, and help the organization live with it.
+          </p>
+          <h2>Keep the bar honest</h2>
+          <p>
+            Shipping is not the same as absorbing. A feature that requires permanent
+            heroics is still a prototype, even with thousands of users. Hold the bar at
+            operable, explainable, and pausable. When those three are true, growth is
+            earned. When they are not, growth is borrowed from future incidents.
+          </p>
+          <p>
+            Long articles do not improve estates. Changed operating habits do. Use this
+            piece as a mirror, not as literature. If nothing in your plan of record moves
+            after reading it, the reading did not count.
+          </p>
+
         </div>
       </article>
     </main>
