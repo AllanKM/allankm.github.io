@@ -34,6 +34,21 @@ architecture governance, and transformation the organization can absorb. Banking
 ## Blog
 - https://allanramos.com/blog/
 - From strategy to systems (2026-07-18): https://allanramos.com/blog/from-strategy-to-systems/
+- AI as a force multiplier, not a substitute for design (2026-07-17): https://allanramos.com/blog/ai-force-multiplier-not-substitute/
+- Architecture review when half the code was generated (2026-07-16): https://allanramos.com/blog/architecture-review-generated-code/
+- Governing AI features in banking and insurance (2026-07-15): https://allanramos.com/blog/governing-ai-features-regulated-industries/
+- A prompt is not a requirement (2026-07-14): https://allanramos.com/blog/prompt-is-not-a-requirement/
+- The technical debt shape of AI-assisted sprints (2026-07-13): https://allanramos.com/blog/technical-debt-ai-assisted-sprints/
+- When not to put a model in the critical path (2026-07-12): https://allanramos.com/blog/when-not-to-put-a-model-in-the-critical-path/
+- Observability for AI-augmented systems (2026-07-11): https://allanramos.com/blog/observability-for-ai-augmented-systems/
+- Human-in-the-loop is an architecture decision (2026-07-10): https://allanramos.com/blog/human-in-the-loop-as-architecture/
+- Data products before AI programmes (2026-07-09): https://allanramos.com/blog/data-products-before-ai-programmes/
+- Security boundaries for copilots and agents (2026-07-08): https://allanramos.com/blog/security-boundaries-for-copilots-and-agents/
+- Build vs buy for AI capabilities (2026-07-07): https://allanramos.com/blog/build-vs-buy-ai-capabilities/
+- Refactoring with AI without losing system intent (2026-07-06): https://allanramos.com/blog/refactoring-with-ai-without-losing-intent/
+- Platform teams and AI toolchains (2026-07-05): https://allanramos.com/blog/platform-teams-and-ai-toolchains/
+- Testing software when behaviour is probabilistic (2026-07-04): https://allanramos.com/blog/testing-probabilistic-software/
+- From AI proof-of-concept to production (2026-07-03): https://allanramos.com/blog/from-ai-poc-to-production/
 
 ## Links
 - https://allanramos.com/
